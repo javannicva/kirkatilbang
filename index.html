@@ -2,16 +2,41 @@
       <h1 style="text-align: center;"><strong>NON</strong></h1>
       <p style="text-align: center;">kirk n'a pas bang depuis qu'il est revenu &agrave; Qu&eacute;bec le 3 septembre 2017</p>
      
-     
-       <script type="text/javascript" src="elapseMe.min.js"></script>
-            <script type="text/javascript">
-            window.onload = function()
-            {
-              elapseMe({year: 2017, month: 9,day: 3,targetId:"elapsedTime1", show : "days"});
+      <div id="countup">
+             Ainsi, depuis
+              <p id="days">00</p>
+              <p class="timeRefDays">jours</p>
+              <p id="hours">00</p>
+              <p class="timeRefHours">heures</p>
+              <p id="minutes">00</p>
+              <p class="timeRefMinutes">minutes</p>
+              <p id="seconds">00</p>
+              <p class="timeRefSeconds">secondes</p>
+            kirk n'a pas bang
+            </div>
+      
+            window.onload=function() {
+              // Month,Day,Year,Hour,Minute,Second
+              upTime('sep,03,2017,00:11:00'); // ****** Change this line!
             }
-            </script>
-       <h2 style="text-align: center;">C'est donc</h2>
-       <div id="elapsedTime1"> </div> 
-      <h2 style="text-align: center;">jours qu'il ne s'est pas trempé le pinceau </h2>
+            function upTime(countTo) {
+              now = new Date();
+              countTo = new Date(countTo);
+              difference = (now-countTo);
+
+              days=Math.floor(difference/(60*60*1000*24)*1);
+              hours=Math.floor((difference%(60*60*1000*24))/(60*60*1000)*1);
+              mins=Math.floor(((difference%(60*60*1000*24))%(60*60*1000))/(60*1000)*1);
+              secs=Math.floor((((difference%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
+
+              document.getElementById('days').firstChild.nodeValue = days;
+              document.getElementById('hours').firstChild.nodeValue = hours;
+              document.getElementById('minutes').firstChild.nodeValue = mins;
+              document.getElementById('seconds').firstChild.nodeValue = secs;
+
+              clearTimeout(upTime.to);
+              upTime.to=setTimeout(function(){ upTime(countTo); },1000);
+            }
+     
       
 </html>

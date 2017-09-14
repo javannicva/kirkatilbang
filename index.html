@@ -1,7 +1,17 @@
 <html>
       <h1 style="text-align: center;"><strong>NON</strong></h1>
       <p style="text-align: center;">kirk n'a pas bang depuis qu'il est revenu &agrave; Qu&eacute;bec le 3 septembre 2017</p>
+      <div id="nmbjours"> </div> <p style="text-align: center;">jours qu'il n'a pas bang a Ste-Foy </p> 
       <p>&nbsp;</p>
       <p>&nbsp;</p>
+      <script language="JavaScript">
+            var then = new Date(2017, 09, 03), // month is zero based
+            now  = new Date;               // no arguments -> current date
 
+            // 24 hours, 60 minutes, 60 seconds, 1000 milliseconds
+          document.getElementById("nmbjours").innerHTML =   Math.round((now - then) / (1000 * 60 * 60 * 24)); // round the amount of days
+            // result: 712
+      </script>
+
+      
 </html>

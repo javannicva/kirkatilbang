@@ -1,50 +1,16 @@
 <html>
       <h1 style="text-align: center;"><strong>NON</strong></h1>
       <p style="text-align: center;">kirk n'a pas bang depuis qu'il est revenu &agrave; Qu&eacute;bec le 3 septembre 2017</p>
-      <p style="text-align: center"><div id="countbox"> </div> </p>
+      <p style="text-align: center"><div id="elapsedTime1"> </div> </p>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
-      <script language="JavaScript">
-                         dateFuture = new Date(2017,9,3,23,59,59);
-
-                      function GetCount(){
-
-                              dateNow = new Date();
-                              //grab current date
-                              amount = dateFuture.getTime() - dateNow.getTime();                
-                              //calc milliseconds between dates
-                              delete dateNow;
-
-                              // time is already past
-                              if(amount < 0){
-                                      document.getElementById('countbox').innerHTML="Now!";
-                              }
-                              // date is still good
-                              else{
-
-                                      days=0;hours=0;mins=0;secs=0;out="";
-
-                                      amount = Math.floor(amount/1000);//kill the "milliseconds" so just secs
-
-                                      days=Math.floor(amount/86400);//days
-                                      amount=amount%86400;
-
-
-                                      if(days != 0){out += days +" day"+((days!=1)?"s":"")+",<br />";}
-                                      if(days != 0 || hours != 0){out += hours +" hour"+((hours!=1)?"s":"")+",<br />";}
-                                      if(days != 0 || hours != 0 || mins != 0){out += mins +" minute"+((mins!=1)?"s":"")+",<br />";}
-                                      out += secs +" seconds";
-                                      document.getElementById('countbox').innerHTML=out;
-
-                                      setTimeout("GetCount()", 1000);
-                              }
-                      }
-
-                      window.onload=function(){GetCount();}//call when everything has loaded
-
-                      //-->
+       <script type="text/javascript" src="elapseMe.min.js"></script>
+            <script type="text/javascript">
+            window.onload = function()
+            {
+              elapseMe({year: 2017, month: 9,day: 3,targetId:"elapsedTime1", show : "days"});
+            }
             </script>
-
 
       
 </html>

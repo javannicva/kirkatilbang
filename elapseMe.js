@@ -1,3 +1,11 @@
+/******** HEADER ***************************
+ Author: Emil Krautmann
+ EMAIL: emilpk@gmail.com
+ Website: http://ecoders.wordpress.com
+ 
+ Thanks and enjoy!
+*******************************************/
+
 var elapseMe = 	(function elapseTimer(settings)
 	{
 		var d = new Date();
